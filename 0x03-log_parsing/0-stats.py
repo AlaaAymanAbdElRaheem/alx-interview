@@ -39,3 +39,4 @@ if __name__ == "__main__":
         for key, value in sorted(status_code.items()):
             if value != 0:
                 print("{}: {}".format(key, value))
+        raise
