@@ -33,9 +33,6 @@ try:
         if counter == 10:
             print_stats(size, status_code)
             counter = 0
-            size = 0
-            for key, value in sorted(status_code.items()):
-                status_code[key] = 0
 
 finally:
     print_stats(size, status_code)
