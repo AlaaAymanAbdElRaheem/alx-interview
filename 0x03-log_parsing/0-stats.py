@@ -22,7 +22,7 @@ status_code = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
 try:
     for line in sys.stdin:
         match = re.match(
-            r"(.*) - \[.*\] \"GET /projects/260 HTTP/1.1\" (\d+) (.*)",
+            r"(.*) - \[.*\] \"GET /projects/260 HTTP/1.1\" (\d+) (\d+)",
             line)
         if match:
             counter += 1
