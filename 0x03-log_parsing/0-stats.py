@@ -6,11 +6,18 @@ import sys
 import re
 
 
+def print_stats(size: int, status_code: dict) -> None:
+    """print stats"""
+    print("File size: {}".format(size))
+    for key, value in sorted(status_code.items()):
+        if value != 0:
+            print("{}: {}".format(key, value))
+
+
 counter = 0
 size = 0
 status_code = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
                "404": 0, "405": 0, "500": 0}
-interrupt_flag = False
 
 try:
     for line in sys.stdin:
@@ -24,18 +31,11 @@ try:
                 status_code[match.group(2)] += 1
 
         if counter == 10:
-            print("File size: {}".format(size))
-            for key, value in sorted(status_code.items()):
-                if value != 0:
-                    print("{}: {}".format(key, value))
+            print_stats(size, status_code)
             counter = 0
             size = 0
             for key, value in sorted(status_code.items()):
                 status_code[key] = 0
 
 finally:
-    interrupt_flag = True
-    print("File size: {}".format(size))
-    for key, value in sorted(status_code.items()):
-        if value != 0:
-            print("{}: {}".format(key, value))
+    print_stats(size, status_code)
