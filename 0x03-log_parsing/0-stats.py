@@ -34,5 +34,6 @@ try:
             print_stats(size, status_code)
             counter = 0
 
-finally:
+except KeyboardInterrupt:
     print_stats(size, status_code)
+    raise
