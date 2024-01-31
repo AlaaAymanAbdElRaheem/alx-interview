@@ -8,7 +8,8 @@ def validUTF8(data: list) -> bool:
     else return False"""
     if not data:
         return False
-    for i in data:
-        if i.bit_length() > 8:
-            return False
-    return True
+    try:
+        bytes(data)
+        return True
+    except Exception:
+        return False
