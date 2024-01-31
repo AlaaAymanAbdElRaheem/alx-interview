@@ -14,4 +14,16 @@ def validUTF8(data: list) -> bool:
         binary = format(i, '08b')
         if len(binary) > 8 or len(binary) < 1:
             return False
+        if binary.startswith('10'):
+            return False
+        if binary.startswith('0'):
+            continue
+        if binary.startswith('110'):
+            bytes = 1
+        elif binary.startswith('1110'):
+            bytes = 2
+        elif binary.startswith('11110'):
+            bytes = 3
+        else:
+            return False
     return True
