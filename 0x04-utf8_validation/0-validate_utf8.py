@@ -11,7 +11,7 @@ def validUTF8(data: list) -> bool:
     for i in data:
         if not isinstance(i, int):
             return False
-        binary = bin(i)
-        if len(binary) > 10:
+        binary = format(i, '08b')
+        if len(binary) > 8:
             return False
     return True
