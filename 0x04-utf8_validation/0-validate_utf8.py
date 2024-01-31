@@ -12,6 +12,6 @@ def validUTF8(data: list) -> bool:
         if not isinstance(i, int):
             return False
         binary = bin(i)
-        if len(binary) > 9:
+        if len(binary) > 10:
             return False
     return True
