@@ -11,7 +11,7 @@ def validUTF8(data: list) -> bool:
 
     followed_bytes = 0
     for i in data:
-        if not isinstance(i, int):
+        if not isinstance(i, int) or i < 0 or i > 255:
             return False
         binary = format(i, '08b')
 
