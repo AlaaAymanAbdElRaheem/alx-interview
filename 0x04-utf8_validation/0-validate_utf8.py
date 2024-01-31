@@ -9,6 +9,6 @@ def validUTF8(data: list) -> bool:
     if not data:
         return False
     for i in data:
-        if i > 255 or i < 0:
+        if i.bit_length() > 8:
             return False
     return True
