@@ -11,7 +11,7 @@ def validUTF8(data: list) -> bool:
 
     followed_bytes = 0
     for value in data:
-        if not isinstance(value, int):
+        if not isinstance(value, int) or value < 0 or value > 255:
             return False
 
         if followed_bytes == 0:
