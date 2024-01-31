@@ -14,8 +14,7 @@ def validUTF8(data: list) -> bool:
         if not isinstance(i, int):
             return False
         binary = format(i, '08b')
-        if len(binary) > 8 or len(binary) < 1:
-            return False
+
         if followed_bytes == 0:
             if binary.startswith('0'):
                 continue
