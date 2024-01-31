@@ -10,24 +10,23 @@ def validUTF8(data: list) -> bool:
         return False
 
     followed_bytes = 0
-    for i in data:
-        if not isinstance(i, int) or i < 0 or i > 255:
+    for value in data:
+        if not isinstance(value, int):
             return False
-        binary = format(i, '08b')
 
         if followed_bytes == 0:
-            if binary.startswith('0'):
+            if value >> 7 == 0:
                 continue
-            elif binary.startswith('110'):
+            elif value >> 5 == 0b110:
                 followed_bytes = 1
-            elif binary.startswith('1110'):
+            elif value >> 4 == 0b1110:
                 followed_bytes = 2
-            elif binary.startswith('11110'):
+            elif value >> 3 == 0b11110:
                 followed_bytes = 3
             else:
                 return False
         else:
-            if not binary.startswith('10'):
+            if value >> 6 != 0b10:
                 return False
         followed_bytes -= 1
 
