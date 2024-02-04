@@ -28,6 +28,6 @@ def validUTF8(data: list) -> bool:
         else:
             if value >> 6 != 0b10:
                 return False
-        followed_bytes -= 1
+            followed_bytes -= 1
 
     return followed_bytes == 0
