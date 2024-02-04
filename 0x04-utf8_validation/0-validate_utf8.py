@@ -6,8 +6,6 @@ represents a valid UTF-8 encoding"""
 def validUTF8(data: list) -> bool:
     """return True if data is a valid UTF-8 encoding,
     else return False"""
-    if not data:
-        return False
 
     followed_bytes = 0
     for value in data:
