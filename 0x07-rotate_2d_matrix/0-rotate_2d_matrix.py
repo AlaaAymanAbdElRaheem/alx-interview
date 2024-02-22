@@ -3,10 +3,7 @@
 by 90 degrees clockwise"""
 
 
-from typing import List
-
-
-def rotate_2d_matrix(matrix: List[List[int]]) -> None:
+def rotate_2d_matrix(matrix) -> None:
     """rotate a 2D matrix by 90 degrees clockwise"""
     for i in range(len(matrix)):
         for j in range((i + 1), len(matrix[0])):
