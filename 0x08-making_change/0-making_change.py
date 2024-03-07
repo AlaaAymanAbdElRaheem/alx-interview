@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Making Change'''
+'''Making Change using top-down dynamic programming'''
 
 
 def makeChange(coins, total):
