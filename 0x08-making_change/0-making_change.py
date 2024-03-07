@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Making Change using top-down dynamic programming'''
+'''Making Change using greedy algorithm'''
 
 
 def makeChange(coins, total):
@@ -7,14 +7,18 @@ def makeChange(coins, total):
     determine the fewest number of coins needed
     to meet a given amount total."""
 
-    if coins is None or total is None or total < 1:
+    if total <= 0 or not coins or len(coins) == 0:
         return 0
 
-    storage = {0: 0}
-    for i in range(1, total + 1):
-        storage[i] = float('inf')
-        for coin in coins:
-            if i - coin >= 0:
-                storage[i] = min(storage[i], storage[i - coin] + 1)
+    coins.sort(reverse=True)
+    num_coins = 0
+    sum = 0
 
-    return storage[total] if storage[total] != float('inf') else -1
+    for coin in coins:
+        while sum + coin <= total:
+            sum += coin
+            num_coins += 1
+
+        if sum == total:
+            return num_coins
+    return -1
