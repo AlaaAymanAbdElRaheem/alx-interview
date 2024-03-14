@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' Prime Game '''
+''' Prime Game using Sieve of Eratosthenes algorithm'''
 
 
 def isWinner(x, nums):
